@@ -12,24 +12,24 @@ Finalmente, evidenciamos la integridad cuando la cadena del mensaje viaja cifrad
 El servidor de suario tiene 3 servicios:
 - El usuario se puede Registrar.
   
-  ![Register]()
+  ![Register](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/Register.jpg)
 
 - El usuario se puede Loguear.
   
-  ![Login]()  
+  ![Login](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/Login.jpg)  
 
 - El usuario puede acceder a una página de Home.
   Si el usuario intenta acceder al home sin estar autorizado, se le notificará tal acción.
   
-  ![Home No Authorized]()
+  ![Home No Authorized](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/Home_not.jpg)
   
   Una vez el usuario se loguea, se le indica que está autorizado y se le muestra el mensaje que llega desde el servidor interno.
   
-  ![Home Authorized]()
+  ![Home Authorized](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/Home_yes.jpg)
   
 - Si intentamos acceder a los recursos del servidor interno, veremos que estos están bloqueados, ya que es necesario un proceso de autenticación y autorización para poder acceder a las peticiones del servidor.
 
-  ![Internal Server Locked]()
+  ![Internal Server Locked](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/Locked.jpg)
 
 Finalmente, destacamos que para que se pueda mantener la consistencia del proceso seguro, todas las peticiones de solo HTTP están bloquedas, de manera que solo es posible realizar peticiones a través de HTTPS únicamente.
 
@@ -66,7 +66,7 @@ mvn package
 ## CÓMO CORRER EN AWS
 Lo primero es crear 3 instancias generando llaves privadas propias.
 
-![Instances]()
+![Instances](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/Instances.jpg)
 
 Ingresamos a las máquinas a través de SSH usando las claves generadas.
 
@@ -80,7 +80,7 @@ Una vez que docker se ha instalado, procedemos a iniciar el Daemon de Docker
 
 Para poder usar nuestros programas previamente creados, descargaremos y usremos las imágenes que los contienen desde un repositorio público de DockerHub.
 
-![Dockerhub]()
+![Dockerhub](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/DockerHub.jpg)
 
 - Ahora va a ser necesario abrir los puertos correspondientes para poder acceder a los servicios en las instancias a través de sus direcciones públicas.
 Así que en el apartado de "Seguridad" de cada instancia,
@@ -154,7 +154,7 @@ keytool -genkeypair -alias ecikeypair -keyalg RSA -keysize 2048 -storetype PKCS1
 
 Luego de ejecutar el comando, se ingresaron los datos correspondientes a cada una de las preguntas para poder crear la llave. Luego de crear la llave, el resultado se obtiene tal y como se observa en la siguiente imagen.
 
-![step1]()
+![step1](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/Step1.jpg)
 
 Para establecer el certificado de la llave ya creada, dentro de la misma carpeta de ```keystores``` se ejecuta el siguiente comando.
 
@@ -164,7 +164,7 @@ keytool -export -keystore ./ecikeystore.p12 -alias ecikeypair -file ecicert.cer
 
 Luego de ejecutar el comando, se observa que el certificado ha sido creado satisfactoriamente para la llave en cuestión.
 
-![step2]()
+![step2](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/Step2.jpg)
 
 Para crear el ```myTrustStore``` para la llave ya creada con su respectivo certificado, se ingresa el siguiente comando.
 
@@ -174,7 +174,7 @@ keytool -import -file ./ecicert.cer -alias firstCA -keystore myTrustStore
 
 Luego de haber ingresado el comando, se verifica que se esté creando el ```myTrustStore``` para la llave que ha sido creada con su respectivo certificado. Luego de verificar que todos los datos retornados estén correctos, se ingresa ```yes``` para poder crear el ```myTrustStore```. Como se ve a continuación, el ```myTrustStore``` ha sido creado satisfactoriamente con su respectivo certificado.
 
-![step3]()
+![step3](https://github.com/Brayandres/AREP-Secure-Distributed-App/blob/main/Evidence/Step3.jpg)
 
 El proceso es similar para el otro certificado.
 Una vez tenemos los certificados, los dejamos dentro del directorio ```.../src/main/resource/keys``` de nuestros proyectos.
