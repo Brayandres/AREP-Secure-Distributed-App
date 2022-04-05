@@ -1,5 +1,7 @@
 # APLICACIÓN DISTRIBUIDA SEGURA EN TODOS SUS FRENTES
 
+Link del Video: [Video del funcionamiento](https://pruebacorreoescuelaingeduco-my.sharepoint.com/:v:/g/personal/brayan_macias_mail_escuelaing_edu_co/ESP-30SCs6VBkql-5XbnOUsBS17SNSagDzApKk8B97l6ZA)
+
 ## REQUERIMIENTOS
 Desarrolle una aplicación Web segura con los siguientes requerimientos:
 - Debe permitir un acceso seguro desde el browser a la aplicación. Es decir debe garantizar autenticación, autorización e integridad de usuarios.
